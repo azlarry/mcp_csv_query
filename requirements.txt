@@ -1,0 +1,6 @@
+pandas
+mcp
+argparse
+llama-index
+llama-index-llms-ollama
+llama-index-tools-mcp

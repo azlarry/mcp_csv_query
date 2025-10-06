@@ -1,0 +1,33 @@
+Available MCP tools:
+
+read_data Read data from the wide receiver table using a SQL SELECT query.
+
+Args:
+    query (str, optional): SQL SELECT query. Defaults to "SELECT * FROM wr_data".
+        Examples:
+        - "SELECT * FROM wr_data"
+        - "SELECT PlayerName, ReceivingYDS, ReceivingTD FROM wr_data WHERE Team='NE'"
+        - "SELECT * FROM wr_data ORDER BY TotalPoints DESC"
+
+Returns:
+    list: List of tuples containing the query results.  Each tuple represents a single NFL wide receiver.
+
+Example:
+    >>> read_data("SELECT PlayerName, Targets FROM wr_data WHERE Targets > 15.0")
+    [('Marquise Brown', '16.0')]
+
+
+User input: which NFL wide receiver had the most receiving yards in week 1 of the 2025 season?
+
+
+Generating non-MCP response ...
+
+non-MCP response: I don't have any information about the 2025 NFL season, as it has not yet occurred. I can only provide information up to my knowledge cutoff date of December 2023. If you're looking for information on the 2024 or previous seasons, I'd be happy to try and help.
+
+
+Generating MCP response ...
+
+MCP response: The NFL wide receiver with the most receiving yards in Week 1 of the 2025 season is Zay Flowers with 143.0 yards.
+
+
+Closing client...
