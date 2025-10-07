@@ -1,5 +1,5 @@
 pandas
-mcp
+fastmcp
 argparse
 llama-index
 llama-index-llms-ollama
