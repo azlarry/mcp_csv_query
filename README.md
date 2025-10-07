@@ -31,6 +31,7 @@ To prepare the SQLite database that is used for the SQL queries, the ```csv_mcp_
 The only modifications to the source data was the addition of Season column and the Week column, as the source data did not specify the season or week:
 
 ```df["Season"] = "2025" # source data does not specify the season```
+
 ```df["Week"] = "1" # source data does not specify the week```
 
 The relevant columns of data for the project question is as follows:
