@@ -12,19 +12,26 @@ This is an exploratory and demonstration project that uses a Model Context Proto
 
 MCP is a standardized way to expose tools to an LLM that can be used to access information and perform functions.  This project allows the LLM to provide SQL queries to the MCP server, which in turn executes those queries on a database created from the source CSV file.
 
-The goal of this project is to ask the LLM a question related to NFL player performance (discussed below) and see if the responses improve if supporting data is provided to the LLM via MCP.  For each question, the following process was used:
+The goal of this project is to ask the LLM a question related to NFL player performance (discussed below) and see if the responses improve if supporting data is provided to the LLM via MCP.  For the question, the following process was used:
 
 * The correct answer is determined using manual methods
 * The question is provided to the LLM with no supporting data (intended to validate that the LLM does not have the data and cannot answer the question properly)
-* The question is provided to the same LLM but with RAG and a CSV file that contains the data needed to answer the question
+* The question is provided to the same LLM but with access to the CSV file (via the MCP server) that contains the data needed to answer the question
 
-Overall the LLM without RAG data was unable to answer the questions, but was able to with RAG data.
+Overall the LLM without CSV data was unable to answer the questions, but was able to with CSV data.
 
 ## Discussion
 
 ### CSV Data
 
 The CSV data used is available [here](https://github.com/hvpkod/NFL-Data/blob/main/NFL-data-Players/2025/1/WR.csv).  This data is for week 1 of the 2025 NFL season.  Each row represents a single player with statistics about their performance in that week's game.
+
+To prepare the SQLite database that is used for the SQL queries, the ```csv_mcp_server.py``` code was used to load the source data CSV into a dataframe and then output to the ```wr.db``` database.
+
+The only modifications to the source data was the addition of Season column and the Week column, as the source data did not specify the season or week:
+
+```df["Season"] = "2025" # source data does not specify the season```
+```df["Week"] = "1" # source data does not specify the week```
 
 The relevant columns of data for the project question is as follows:
 

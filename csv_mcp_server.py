@@ -19,7 +19,7 @@ def csv_to_sqlite_pandas(csv_file_path: str, db_file_path: str, table_name: str)
     df = pd.read_csv(csv_file_path)
     
     df["Season"] = "2025" # source data does not specify the season
-    df["Week"] = "1" # source data does not specify the season
+    df["Week"] = "1" # source data does not specify the week
 
     # Connect to SQLite database
     conn = sqlite3.connect(db_file_path)
